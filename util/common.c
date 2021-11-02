@@ -29,7 +29,7 @@ void fillArrayWithRandomValue(int *array, int lenght){
 
     for(int i = 0; i < lenght; i++)
     {
-        array[i] = rand();
+        array[i] = rand() % 200;
     }
 }
 

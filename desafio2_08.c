@@ -4,37 +4,20 @@
 // vetor M + o tamanho do vetor + a distância entre os elementos a serem invertidos (um
 // int) e que faça a inversão dos valores no vetor original).
 #include "./util/desafio2_08.h"
-#include <stdio.h>
-
-void modifyArrayM(int *vetorM, int *arrayLength, int *interval);
+#include "./util/common.h"
 
 int main(void){
     
     int interval = 5;
-    int arrayLength = 10;
-    int vetorM[10] = {13, 14, 15, 16, 17, 18, 19, 20, 21, 22};
-    
-    printf("Vetor M original: \n");
-    for(int i = 0; i < arrayLength; i++)
-    {
-        printf("Vetor[%d] =  %d\n",  i, vetorM[i]);
-    }
+    int length = 10;
+    int *vetorM;
 
-    modifyArrayM(vetorM, &arrayLength, &interval);
+    vetorM = createIntArray(length);
+    fillArrayWithRandomValue(vetorM, length);
 
-    printf("Vetor M modificado: \n");
-    for(int i = 0; i < arrayLength; i++)
-    {
-        printf("Vetor[%d] =  %d\n",  i, vetorM[i]);
-    }
+    printArray(vetorM, length);
+
+    modifyArrayM(vetorM, &length, &interval);
+
+    printArray(vetorM, length);
 }
-
-void modifyArrayM(int *vetorM, int *arrayLength, int *interval){
-
-    for(int i = 0; i < (*arrayLength / 2); i++)
-    {
-        int aux = vetorM[i + *interval];
-        vetorM[i + *interval] = vetorM[i];
-        vetorM[i] = aux;
-    }
-};
