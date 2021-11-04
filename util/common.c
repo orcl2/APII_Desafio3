@@ -1,5 +1,29 @@
+void exitProgram(){
+    exit(1);
+}
+
 int *createIntArray(int length){
     return malloc(length * sizeof(int));
+}
+
+void *resizeIntArray(int *array, int value, int length){
+    if(array == NULL){
+        array = createIntArray(length);
+        array[0] = value;
+    } else {
+        int *newArray = (int*) realloc(array, length * sizeof(int));
+
+        if(newArray != NULL) {
+            array = newArray;
+            array[length - 1] = value;
+        }
+        else 
+        {
+            free(array);
+            printf("\nErro ao alocar a memória!\n");
+            exitProgram();
+        }
+    }
 }
 
 void printArray(int *array, int lenght){

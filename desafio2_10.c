@@ -5,15 +5,14 @@
 // preenchido. Mostre o conteúdo dos dois vetores no final. (Dica: Criar uma função que
 // receba como parâmetros o número lido, os dois vetores e os índices de cada vetor que
 // devem ser usados como condição de parada no método main()).
-#include "./util/desafio2_10.h"
-#include <stdio.h>
+#include "./util/common.h"
 
 void fillArray(int num, int *vetorA, int *vetorB, int *idxVetorA, int *idxVetorB);
 
 int main(void){
     
-    int vetorA[10];
-    int vetorB[10];
+    int *vetorA;
+    int *vetorB;
     int idxVetorA = 0;
     int idxVetorB = 0;
     int num = 1;
@@ -27,35 +26,28 @@ int main(void){
     }
     while(num != 0 && idxVetorA < 10 && idxVetorB < 10);
 
-    printf("_________________________\n");
+    printf("_________________________\nVetor de numeros pares\n");
     if(idxVetorA != 0)
-    {
-        printf("Vetor de numeros pares: \n");
-        for(int i = 0; i < idxVetorA; i++)
-            printf("VetorDePares[%d] =  %d\n",  i, vetorA[i]);
-    }
+        printArray(vetorA, idxVetorA);
     else
-        printf("Vetor de numeros pares vazio!\n");
+        printf("Vazio!\n");
 
-    printf("_________________________\n");
+    printf("_________________________\nVetor de numeros impares\n");
     if(idxVetorB != 0)
-    {
-        printf("Vetor de numeros impares: \n");
-        for(int i = 0; i < idxVetorB; i++)
-            printf("VetorDeImpares[%d] =  %d\n", i, vetorB[i]);
-    }
+        printArray(vetorB, idxVetorB);
     else
-        printf("Vetor de numeros impares vazio!\n");
-    
+        printf("Vazio!\n");    
 }
 
 void fillArray(int num, int *vetorA, int *vetorB, int *idxVetorA, int *idxVetorB){
-    if(num%2 == 0){
-        vetorA[*idxVetorA] = num;
-        *idxVetorA = *idxVetorA + 1;
-    }
-    else {
-        vetorB[*idxVetorB] = num;
-        *idxVetorB = *idxVetorB + 1;
-    }  
+    if(num != 0){
+        if(num%2 == 0){
+            *idxVetorA = *idxVetorA + 1;
+            resizeIntArray(vetorA, num, *idxVetorA);
+        }
+        else {
+            *idxVetorB = *idxVetorB + 1;
+            resizeIntArray(vetorB, num, *idxVetorB);
+        } 
+    } 
 };
