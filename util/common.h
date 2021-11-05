@@ -11,3 +11,4 @@ void fillArrayWithValue(int *array, int value, int lenght);
 void fillArrayWithIncrementValue(int *array, int startValue, int step, int lenght);
 void fillArrayWithRandomValue(int *array, int lenght);
 void multiplicationOfArray(int *vetorA, int *vetorB, int *vetorC, int length);
+void intersectOfTwoArrays(int *vetorA, int *vetorB, int *vetorC, int *idxVetorC, int length);

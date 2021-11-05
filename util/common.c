@@ -41,7 +41,7 @@ void fillArrayWithRandomValue(int *array, int lenght){
 
     for(int i = 0; i < lenght; i++)
     {
-        array[i] = rand() % 200;
+        array[i] = rand() % 5000;
     }
 }
 
@@ -49,5 +49,19 @@ void multiplicationOfArray(int *vetorA, int *vetorB, int *vetorC, int length){
     for(int i = 0; i < length; i++)
     {
         vetorC[i] = vetorA[i] * vetorB[i];
+    }
+};
+
+void intersectOfTwoArrays(int *vetorA, int *vetorB, int *vetorC, int *idxVetorC, int length){
+    for(int i = 0; i < length; i++)
+    {
+        for(int j = 0; j < length; j++)
+        {
+            if(vetorA[i] == vetorB[j])
+            {
+                resizeIntArray(vetorC, vetorA[i], *idxVetorC);
+                *idxVetorC = *idxVetorC + 1;
+            }
+        }
     }
 };

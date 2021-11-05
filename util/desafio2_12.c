@@ -24,7 +24,7 @@ int main(void){
 }
 
 void intersectOfTwoArrays(int *vetorA, int *vetorB, int *vetorC, int *idxVetorC){
-    *idxVetorC = 0;
+    *idxVetorC = 1;
     for(int i = 0; i < 50; i++)
     {
         for(int j = 0; j < 50; j++)
