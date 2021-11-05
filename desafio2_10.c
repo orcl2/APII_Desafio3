@@ -6,6 +6,7 @@
 // receba como parâmetros o número lido, os dois vetores e os índices de cada vetor que
 // devem ser usados como condição de parada no método main()).
 #include "./util/common.h"
+#include "./util/desafio2_10.h"
 
 void fillArray(int num, int *vetorA, int *vetorB, int *idxVetorA, int *idxVetorB);
 
@@ -17,12 +18,15 @@ int main(void){
     int idxVetorB = 0;
     int num = 1;
 
+    vetorA = createIntArray(10);
+    vetorB = createIntArray(10);
+
     printf("O programa sera encerrado caso digite o numero '0' ou algum dos vetores seja completado.\n");
     
     do{ 
         printf("Informe um valor: ");
         scanf("%d", &num);
-        fillArray(num, vetorA, vetorB, &idxVetorA, &idxVetorB);        
+        fillArray(num, vetorA, vetorB, &idxVetorA, &idxVetorB);
     }
     while(num != 0 && idxVetorA < 10 && idxVetorB < 10);
 
@@ -38,16 +42,3 @@ int main(void){
     else
         printf("Vazio!\n");    
 }
-
-void fillArray(int num, int *vetorA, int *vetorB, int *idxVetorA, int *idxVetorB){
-    if(num != 0){
-        if(num%2 == 0){
-            *idxVetorA = *idxVetorA + 1;
-            resizeIntArray(vetorA, num, *idxVetorA);
-        }
-        else {
-            *idxVetorB = *idxVetorB + 1;
-            resizeIntArray(vetorB, num, *idxVetorB);
-        } 
-    } 
-};

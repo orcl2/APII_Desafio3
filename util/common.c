@@ -7,23 +7,11 @@ int *createIntArray(int length){
 }
 
 void *resizeIntArray(int *array, int value, int length){
-    if(array == NULL){
-        array = createIntArray(length);
-        array[0] = value;
-    } else {
-        int *newArray = (int*) realloc(array, length * sizeof(int));
-
-        if(newArray != NULL) {
-            array = newArray;
-            array[length - 1] = value;
-        }
-        else 
-        {
-            free(array);
-            printf("\nErro ao alocar a memória!\n");
-            exitProgram();
-        }
-    }
+    do {
+        array = (int*) realloc(array, length * sizeof(*array));
+    } while (array == NULL);
+    
+    array[length - 1] = value;
 }
 
 void printArray(int *array, int lenght){
